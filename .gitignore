@@ -1,0 +1,17 @@
+.directory
+.mailmap
+*.orig
+*.rej
+*.*~
+*.kdev*
+.DS_Store
+CMakeLists.txt.user
+*.bak
+*.patch
+*.diff
+.settings/
+.project
+.cproject
+tmp/
+*.tmp
+*.swp

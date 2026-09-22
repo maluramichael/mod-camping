@@ -1,0 +1,100 @@
+[worldserver]
+
+########################################
+# mod-camping
+#
+# A campfire rest spot: `.camp` summons an existing "Basic Campfire" gameobject at the
+# player's feet (on a per-player cooldown). Standing within range of any active campfire keeps
+# a "Camp Rest" buff topped up to BuffDurationMin; leaving range lets it count down and expire
+# naturally. See the module's README.md for the full design and its v1 scope cut.
+########################################
+
+#
+#    Camping.Enable
+#        Description: Master switch. Setting it to 0 (and reloading / restarting) disables
+#                     `.camp` entirely and stops granting the rest buff.
+#        Default:     1
+#
+
+Camping.Enable = 1
+
+#
+#    Camping.BuffDurationMin
+#        Description: How many minutes the Camp Rest buff is (re)topped up to while the player
+#                     stays within Camping.RestRangeYards of an active campfire.
+#        Default:     60
+#
+
+Camping.BuffDurationMin = 60
+
+#
+#    Camping.SummonCooldownSec
+#        Description: Per-player cooldown (seconds) on the `.camp` command.
+#        Default:     300
+#
+
+Camping.SummonCooldownSec = 300
+
+#
+#    Camping.RestRangeYards
+#        Description: How close a player needs to be to an active Basic Campfire to receive /
+#                     keep the Camp Rest buff.
+#        Default:     15
+#
+
+Camping.RestRangeYards = 15
+
+#
+#    Camping.CampfireDurationSec
+#        Description: How long (seconds) a summoned campfire - and, if enabled, its vendor /
+#                     repair NPCs - stay in the world before despawning.
+#        Default:     600
+#
+
+Camping.CampfireDurationSec = 600
+
+#
+#    Camping.CheckIntervalMs
+#        Description: How often (milliseconds) each player's distance to the nearest campfire
+#                     is re-checked. Lower = more responsive, more CPU.
+#        Default:     5000
+#
+
+Camping.CheckIntervalMs = 5000
+
+#
+#    Camping.VendorEnabled
+#        Description: Also summon a vendor NPC next to the campfire on `.camp`. Requires
+#                     Camping.VendorEntry to be set to a valid creature_template entry from
+#                     YOUR world DB - left at 0 this stays off even if enabled (see README).
+#        Default:     0
+#
+
+Camping.VendorEnabled = 0
+
+#
+#    Camping.VendorEntry
+#        Description: creature_template entry to summon as the camp vendor. 0 = none. Verify
+#                     the entry exists in your world DB before setting this (see README).
+#        Default:     0
+#
+
+Camping.VendorEntry = 0
+
+#
+#    Camping.RepairEnabled
+#        Description: Also summon a repair NPC next to the campfire on `.camp`. Same caveat as
+#                     Camping.VendorEnabled: requires Camping.RepairEntry to be set.
+#        Default:     0
+#
+
+Camping.RepairEnabled = 0
+
+#
+#    Camping.RepairEntry
+#        Description: creature_template entry to summon as the camp repair NPC. 0 = none.
+#                     Verify the entry exists in your world DB before setting this (see README).
+#        Default:     0
+#
+
+Camping.RepairEntry = 0
