@@ -1,0 +1,32 @@
+# Opens MPQ files changed in a PR and posts their decoded contents as a comment.
+# Uses https://github.com/maluramichael/mpq-inspect-action (pinned to @main = auto-update).
+name: Inspect MPQ patches
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "**/*.MPQ"
+      - "**/*.mpq"
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "PR number to inspect"
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: mpq-inspect-${{ github.event.pull_request.number || github.event.inputs.pr }}
+  cancel-in-progress: true
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect MPQ patches
+        uses: maluramichael/mpq-inspect-action@main
+        with:
+          pr-number: ${{ github.event.pull_request.number || github.event.inputs.pr }}
