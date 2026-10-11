@@ -1,5 +1,5 @@
 # Opens MPQ files changed in a PR and posts their decoded contents as a comment.
-# Uses https://github.com/maluramichael/mpq-inspect-action (pinned to @main = auto-update).
+# Uses https://github.com/maluramichael/mpq-inspect-action (pinned to @master = auto-update).
 name: Inspect MPQ patches
 
 on:
