@@ -24,9 +24,9 @@ concurrency:
 
 jobs:
   inspect:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Inspect MPQ patches
-        uses: maluramichael/mpq-inspect-action@main
+        uses: maluramichael/mpq-inspect-action@master
         with:
           pr-number: ${{ github.event.pull_request.number || github.event.inputs.pr }}
